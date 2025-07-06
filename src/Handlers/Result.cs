@@ -1,5 +1,9 @@
 using TaskManagementSystem.SharedLib.Exceptions;
 
+
+namespace TaskManagementSystem.SharedLib.Handlers;
+
+
 public sealed class Result<T>
 {
     public T Value { get; } = default!;
