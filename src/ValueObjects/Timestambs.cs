@@ -10,13 +10,22 @@ public class Timestamps
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
+    private Timestamps() {}
+
     public Timestamps(IDateTimeService dateTimeService)
     {
         _dateTimeService = dateTimeService;
         CreatedAt = _dateTimeService.UtcNow;
+        UpdatedAt = CreatedAt;
     }
 
-    public void Update()
+    public Timestamps(DateTime createdAt, DateTime updatedAt)
+    {
+        CreatedAt = createdAt;
+        UpdatedAt = updatedAt;
+    }
+
+    public void Touch()
     {
         UpdatedAt = _dateTimeService.UtcNow;
     }
