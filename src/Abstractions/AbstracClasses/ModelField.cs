@@ -8,6 +8,7 @@ namespace TaskManagementSystem.SharedLib.Abstractions;
 public interface IModelField
 {
     string Value { get;  }
+    IModelField AsForeignKey();
 }
 
 
@@ -32,4 +33,6 @@ public abstract record ModelField<T>(string Value) : IModelField
 
     public static bool ContainsField(T field) =>
         All.Contains(field);
+
+    public abstract IModelField AsForeignKey();
 }

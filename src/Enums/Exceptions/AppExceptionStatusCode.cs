@@ -8,9 +8,11 @@ public enum AppExceptionStatusCode
     ValueError = 2,
     InvalidFormat = 3,
     RequiredField = 4,
+    NotFound = 5,
 
     // Authorization < 200 < 100
     InvalidCredentials = 101,
+
 
     // COMMON > 999,
     DetailedError = 1000
