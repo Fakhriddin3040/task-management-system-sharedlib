@@ -7,6 +7,7 @@ public sealed record AppExceptionErrorMessages
     public const string UniqueConstraint = "Unique constraint violation.";
     public const string RequiredField = "Required field is missing.";
     public const string InvalidFormat = "Invalid format for the provided value.";
+    public const string NotFound = "The requested resource was not found.";
 
 
     // Authorization

@@ -40,4 +40,9 @@ public static class ResultExtension
         return new ArgumentException(
             "Result is not successful and no exception details are provided.");
     }
+
+    public static string ErrorDetailsToJson<T>(this Result<T> result)
+    {
+        return "[" + string.Join("\n", result.ErrorDetails.Select(d => d.ToJson().ToString()).ToArray()) + "]";
+    }
 }
