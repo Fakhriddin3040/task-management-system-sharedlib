@@ -9,10 +9,13 @@ public class SystemUserDto
 
     public static SystemUserDto FromJson(string json)
     {
-        var result = JsonSerializer.Deserialize<SystemUserDto>(json);
-        if (result == null)
+        var result = JsonSerializer.Deserialize<SystemUserDto>(json, new JsonSerializerOptions {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if (result is null || result.Id == Guid.Empty || string.IsNullOrEmpty(result.Email))
         {
-            throw new InvalidOperationException("Deserialization failed, result is null.");
+            throw new InvalidOperationException("Deserialization failed. One or more properties are invalid.");
         }
 
         return result;

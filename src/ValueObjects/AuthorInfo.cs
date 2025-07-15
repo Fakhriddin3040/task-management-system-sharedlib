@@ -16,4 +16,6 @@ public class AuthorInfo
     {
         UpdatedById = updatedById;
     }
+
+    private AuthorInfo() {}
 }

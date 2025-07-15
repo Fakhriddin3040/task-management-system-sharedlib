@@ -2,41 +2,27 @@ using Grpc.Core;
 using TaskManagementSystem.SharedLib.DTO;
 using TaskManagementSystem.SharedLib.Enums.StrEnums;
 using TaskManagementSystem.SharedLib.Providers.Interfaces;
+using ExecutionContext = TaskManagementSystem.SharedLib.DTO.ExecutionContext;
 
 namespace TaskManagementSystem.SharedLib.Providers;
 
 
 public sealed class GrpcExecutionContextProvider : IExecutionContextProvider
 {
-    private ServerCallContext? _context = null!;
+    private ExecutionContext _context;
 
-    public void SetContext(ServerCallContext context)
+    public void SetContext(ExecutionContext context)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _context = context;
     }
 
-    public ExecutionContextDto GetContext()
+    public ExecutionContext GetContext()
     {
-        if (_context is null)
+        if (_context == null)
         {
-            throw new InvalidOperationException("Grpc execution context provider is not initialized.");
+            throw new RpcException(new Status(StatusCode.Internal, "Execution context is not set."));
         }
 
-        var user = _context.RequestHeaders.GetValue(ExecutionContextKeys.User);
-        var traceId = _context.RequestHeaders.GetValue(ExecutionContextKeys.TraceId);
-
-        if (string.IsNullOrEmpty(user))
-        {
-            throw new InvalidOperationException("No user claim found.");
-        }
-        if (string.IsNullOrEmpty(traceId))
-        {
-            throw new InvalidOperationException("No trace ID found.");
-        }
-
-        return new(
-            user: SystemUserDto.FromJson(user),
-            traceId: traceId
-        );
+        return _context;
     }
 }
