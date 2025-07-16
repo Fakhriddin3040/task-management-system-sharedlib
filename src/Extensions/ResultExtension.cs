@@ -45,4 +45,11 @@ public static class ResultExtension
     {
         return "[" + string.Join("\n", result.ErrorDetails.Select(d => d.ToJson().ToString()).ToArray()) + "]";
     }
+
+    public static Result<T> Merge<T>(this Result<T> v1, Result<T> v2)
+    {
+        return Result<T>.Failure(
+            details: v1.ErrorDetails.Concat(v2.ErrorDetails)
+        );
+    }
 }

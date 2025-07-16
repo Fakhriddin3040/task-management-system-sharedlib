@@ -8,6 +8,7 @@ public sealed record AppExceptionErrorMessages
     public const string RequiredField = "Required field is missing.";
     public const string InvalidFormat = "Invalid format for the provided value.";
     public const string NotFound = "The requested resource was not found.";
+    public const string InvalidValue = "The invalid value was provided.";
 
 
     // Authorization

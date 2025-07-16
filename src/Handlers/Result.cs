@@ -24,6 +24,8 @@ public sealed class Result<T>
         ErrorDetails = errorDetails.ToList();
     }
 
+    public static Result<T> Empty() => new([]);
+
     public static Result<T> Success(T value) => new(value);
 
     public static Result<T> Failure(params AppExceptionDetail[] details) =>
