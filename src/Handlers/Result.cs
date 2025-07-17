@@ -28,6 +28,11 @@ public sealed class Result<T>
 
     public static Result<T> Success(T value) => new(value);
 
+    public static Result<T> Failure(AppExceptionDetail errorDetail) =>
+        new([
+            errorDetail
+        ]);
+
     public static Result<T> Failure(params AppExceptionDetail[] details) =>
         new(details);
 
