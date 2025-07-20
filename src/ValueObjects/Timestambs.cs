@@ -5,20 +5,20 @@ namespace TaskManagementSystem.AuthService.Core.ValueObjects;
 
 public class Timestamps
 {
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
+    public Int64 CreatedAt { get; set; }
+    public Int64 UpdatedAt { get; set; }
 
     private Timestamps() {}
 
     public static Timestamps FromDateTimeService(IDateTimeService dateTimeService)
     {
         return new Timestamps {
-            CreatedAt = dateTimeService.UtcNow,
-            UpdatedAt = dateTimeService.UtcNow,
+            CreatedAt = dateTimeService.UnixEpochMilliseconds(),
+            UpdatedAt = dateTimeService.UnixEpochMilliseconds()
         };
     }
 
-    public Timestamps(DateTime createdAt, DateTime updatedAt)
+    public Timestamps(Int64 createdAt, Int64 updatedAt)
     {
         CreatedAt = createdAt;
         UpdatedAt = updatedAt;
@@ -26,6 +26,6 @@ public class Timestamps
 
     public void Touch(IDateTimeService dateTimeService)
     {
-        UpdatedAt = dateTimeService.UtcNow;
+        UpdatedAt = dateTimeService.UnixEpochMilliseconds();
     }
 }

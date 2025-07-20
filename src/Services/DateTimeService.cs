@@ -14,4 +14,12 @@ public class DateTimeService : IDateTimeService
     {
         return (int)(dateTime - new DateTime(1970, 1, 1)).TotalSeconds;
     }
+    public long UnixEpochMilliseconds(DateTime dateTime)
+    {
+        return (long)(dateTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
+    }
+    public long UnixEpochMilliseconds()
+    {
+        return (long)(Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
+    }
 }
