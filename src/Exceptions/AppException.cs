@@ -23,6 +23,16 @@ public class AppException : Exception
         Details = details;
     }
 
+    public static AppException NotFound()
+    {
+        return new(message: AppExceptionErrorMessages.NotFound, statusCode: AppExceptionStatusCode.NotFound);
+    }
+
+    public static AppException InternalServerError()
+    {
+        return new(message: AppExceptionErrorMessages.InternalServerError, statusCode: AppExceptionStatusCode.InternalServerError);
+    }
+
     public JsonObject ToJson()
     {
         var json = new JsonObject

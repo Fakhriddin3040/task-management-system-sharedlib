@@ -15,6 +15,8 @@ public sealed record AppExceptionErrorMessages
     public const string InvalidCredentials = "Invalid credentials provided.";
     public const string InvalidLoginCredentials = "Invalid login credentials.";
 
+    // Internal
+    public const string InternalServerError = "An internal server error occurred.";
 
     // Others
     public const string DetailedError = "Detailed error.";

@@ -14,6 +14,8 @@ public enum AppExceptionStatusCode
     // Authorization < 200 < 100
     InvalidCredentials = 101,
 
+    // Internal < 300 < 200
+    InternalServerError = 201,
 
     // COMMON > 999,
     DetailedError = 1000
