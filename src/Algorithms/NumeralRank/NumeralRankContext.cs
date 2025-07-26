@@ -1,10 +1,10 @@
 namespace TaskManagementSystem.SharedLib.Algorithms.NumeralRank;
 
 
-public readonly struct NumeralRankContext(long PreviousRank, long NextRank)
+public readonly struct NumeralRankContext(long previousRank, long nextRank)
 {
-    public long PreviousRank { get; } = PreviousRank;
-    public long NextRank { get; } = NextRank;
+    public long PreviousRank { get; } = previousRank;
+    public long NextRank { get; } = nextRank;
 
     public override string ToString() => $"Previous Rank: {PreviousRank}, Next Rank: {NextRank}";
 
