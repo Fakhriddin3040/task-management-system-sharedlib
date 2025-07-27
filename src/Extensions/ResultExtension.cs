@@ -52,4 +52,11 @@ public static class ResultExtension
             details: v1.ErrorDetails.Concat(v2.ErrorDetails)
         );
     }
+
+    public static Result<T> Merge<T, T2>(this Result<T> v1, Result<T2> v2)
+    {
+        return Result<T>.Failure(
+            details: v1.ErrorDetails.Concat(v2.ErrorDetails)
+        );
+    }
 }
