@@ -10,6 +10,7 @@ public enum AppExceptionStatusCode
     RequiredField = 4,
     NotFound = 5,
     InvalidValue = 6,
+    BadRequest = 7,
 
     // Authorization < 200 < 100
     InvalidCredentials = 101,

@@ -1,4 +1,4 @@
-using TaskManagementSystem.SharedLib.Handlers;
+ using TaskManagementSystem.SharedLib.Algorithms.NumeralRank;
 
 namespace TaskManagementSystem.SharedLib.Algorithms.NumeralRank.Interfaces;
 

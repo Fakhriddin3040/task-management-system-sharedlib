@@ -9,6 +9,8 @@ public sealed record AppExceptionErrorMessages
     public const string InvalidFormat = "Invalid format for the provided value.";
     public const string NotFound = "The requested resource was not found.";
     public const string InvalidValue = "The invalid value was provided.";
+    public const string BadRequest = "Bad request parameters.";
+    public const string InvalidColumnRangeOnMove = "Invalid column range on move operation. Detected one or more columns between the source and destination that are not adjacent.";
 
 
     // Authorization
