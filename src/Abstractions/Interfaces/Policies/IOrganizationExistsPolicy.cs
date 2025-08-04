@@ -1,4 +1,4 @@
-namespace TaskManagementSystem.TaskBoardService.Core.Interfaces.Policies;
+namespace TaskManagementSystem.SharedLib.Interfaces.Policies;
 
 
 public interface IOrganizationExistsPolicy

@@ -1,7 +1,6 @@
-using TaskManagementSystem.SharedLib.Algorithms.NumeralRank;
 using TaskManagementSystem.SharedLib.Algorithms.NumeralRank.Interfaces;
 
-namespace TaskManagementSystem.SharedLib.Core.Algorithms.NumeralRank;
+namespace TaskManagementSystem.SharedLib.Algorithms.NumeralRank;
 
 
 public class NumeralRankValidationStrategySelector : INumeralRankValidationStrategySelector

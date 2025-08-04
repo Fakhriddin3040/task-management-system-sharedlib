@@ -1,3 +1,4 @@
+
 using TaskManagementSystem.SharedLib.Algorithms.NumeralRank.Interfaces;
 
 namespace TaskManagementSystem.SharedLib.Algorithms.NumeralRank.Strategies;

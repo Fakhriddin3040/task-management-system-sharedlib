@@ -8,9 +8,15 @@ public class EndNumeralRankStrategy : INumeralRankStrategy
 
     public NumeralRankResult GenerateRank(NumeralRankContext context)
     {
+        var needReorder = NumeralRankOptions.MaxRank - context.PreviousRank <= NumeralRankOptions.MinGap;
+
         return new(
-            rank: context.PreviousRank + NumeralRankOptions.DefaultStep);
+            rank: needReorder
+                ? NumeralRankOptions.NeedReordering
+                : context.PreviousRank + NumeralRankOptions.DefaultStep
+        );
     }
+
     public bool CanHandle(NumeralRankContext context)
     {
         return context.IsToEnd;
