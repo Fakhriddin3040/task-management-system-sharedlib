@@ -7,4 +7,7 @@ public class AppUnexpectedException : Exception
         : base("An unexpected error occurred in the application.")
     {
     }
+
+    public AppUnexpectedException(string message)
+        : base(message){}
 }

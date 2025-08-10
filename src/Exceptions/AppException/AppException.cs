@@ -28,6 +28,11 @@ public class AppException : Exception
         return new(message: AppExceptionErrorMessages.NotFound, statusCode: AppExceptionStatusCode.NotFound);
     }
 
+    public AppException(AppExceptionDetail detail)
+    {
+        Details = new [] { detail };
+    }
+
     public static AppException InternalServerError()
     {
         return new(message: AppExceptionErrorMessages.InternalServerError, statusCode: AppExceptionStatusCode.InternalServerError);
