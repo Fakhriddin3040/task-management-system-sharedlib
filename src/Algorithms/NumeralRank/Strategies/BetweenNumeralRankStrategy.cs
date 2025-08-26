@@ -1,6 +1,4 @@
-using TaskManagementSystem.SharedLib.Algorithms.NumeralRank;
 using TaskManagementSystem.SharedLib.Algorithms.NumeralRank.Interfaces;
-
 
 namespace TaskManagementSystem.SharedLib.Algorithms.NumeralRank.Strategies;
 
@@ -12,10 +10,10 @@ public class BetweenNumeralRankStrategy : INumeralRankStrategy
     {
         var needReorder = context.NextRank - context.PreviousRank < NumeralRankOptions.MinGap;
 
-        return new(
-            rank: needReorder
-            ? NumeralRankOptions.NeedReordering
-            : (context.PreviousRank + context.NextRank) / 2);
+        return needReorder
+            ? NumeralRankResult.ForReorder()
+            : new NumeralRankResult(
+                (context.PreviousRank + context.NextRank) / 2);
     }
 
     public bool CanHandle(NumeralRankContext context)
