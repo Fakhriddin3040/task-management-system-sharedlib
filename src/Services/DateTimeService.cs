@@ -18,6 +18,10 @@ public class DateTimeService : IDateTimeService
     {
         return (long)(dateTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
     }
+    public int UnixEpochSeconds()
+    {
+        return (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+    }
     public long UnixEpochMilliseconds()
     {
         return (long)(Now - new DateTime(1970, 1, 1)).TotalMilliseconds;

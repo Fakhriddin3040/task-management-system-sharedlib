@@ -8,6 +8,7 @@ public interface IDateTimeService
     DateOnly Today { get; }
     DateOnly UtcToday { get; }
     int UnixEpochSeconds(DateTime dateTime);
+    int UnixEpochSeconds();
     Int64 UnixEpochMilliseconds(DateTime dateTime);
     Int64 UnixEpochMilliseconds();
 }
